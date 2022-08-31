@@ -119,7 +119,16 @@ function init() {
 }
 
 $(init)
-</script>    
+</script>
+<style>
+#hireDate::before {
+    content: attr(data-placeholder);
+    width: 100%
+}
+#hireDate:focus::before, #hireDate:valid::before {
+    display: none;
+}
+</style>
 </head>
 <div class='container'>
 	<div class='row'>
@@ -137,7 +146,7 @@ $(init)
 						<input type='text' class='form-control' placeholder='노동자명' id='laborerName'/>
 					</div>
 					<div class='col-4'>
-						<input type='date' class='form-control' id='hireDate'/>
+						<input type='date' class='form-control' data-placeholder='입사일' required id='hireDate'/>
 					</div>
 					<div class='col'>
 						<nav class='d-flex'>
@@ -168,7 +177,7 @@ $(init)
 	</div>
 </div>
 
-<div class='modal fade' tabindex='-1' id='delLaborerModal'>
+<div class='modal fade' tabindex='-1' id='modal'>
 	<div class='modal-dialog'>
 		<div class='modal-content'>
 			<div class='modal-header'>
